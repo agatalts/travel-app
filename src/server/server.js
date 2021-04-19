@@ -28,9 +28,7 @@ const cors = require('cors');
 const { response } = require('express');
 app.use(cors());
 
-// Initialize the main project folder
 
-app.use(express.static('website'));
 
 // Setup Server
 
