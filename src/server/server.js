@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Setup empty JS object to act as endpoint for all routes
 
 projectData = {};
