@@ -24,12 +24,13 @@ a {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   width: 90vw;
   display: grid;
-  grid-template-rows: 70px auto;
+  grid-template-rows: 70px auto 260px;
   grid-template-columns: 8fr 7fr;
 
   grid-template-areas:
     "hd hd"
-    "left right";
+    "left right"
+    "photo photo";
 }
 
 .headline {
@@ -55,7 +56,7 @@ a {
   margin: 10px;
 }
 
-#feelings {
+#dates {
   display: block;
   margin: 0 auto;
   resize: vertical;
@@ -85,7 +86,9 @@ input {
   font-size: 16px;
 }
 
-#zip {
+#city,
+#start,
+#end {
   display: block;
   margin: 0 auto;
   width: 150px;
@@ -96,7 +99,7 @@ input {
   padding: 7px;
 }
 
-.zip {
+.city {
   margin-bottom: 15px;
 }
 
@@ -132,17 +135,27 @@ input {
   margin: 5px 0 1px;
 }
 
-#date,
-#city,
-#temp,
-#content {
-  min-height: 23px;
+#result-city,
+#result-start,
+#result-end,
+#result-length,
+#result-weather {
+  min-height: 20px;
   display: flex;
   justify-content: center;
 }
 
-#content {
-  min-height: 80px;
+.result-image {
+  max-height: 90%;
+  max-width: 60%;
+  margin-bottom: 20px;
+}
+
+#result-image {
+  grid-area: photo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
