@@ -43,9 +43,11 @@ app.listen(8081, function () {
 
 // GET route that returns the projectData object
 
-app.get('*', function (req, res) {
-    res.sendFile(path.resolve(__dirname + '/../../dist/index.html'));
+app.get('/return', (req, res) => {
+  res.send(projectData);
 });
+
+
 
 // POST route that adds incoming data to projectData
 
@@ -63,15 +65,12 @@ fetch(geonames_url)
   .then((res) => res.json())
   .then((json) => {
     const nowTemperature = json.data[0].temp;
-  
-   
     const weatherbit_url2 = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=d9af636353964ce2bc494531d1cff5cc`;
     fetch(weatherbit_url2)
   .then((res) => res.json())
   .then((json) => {
-    const highTemperature = json.data[countdown].high_temp;
-    const lowTemperature = json.data[countdown].low_temp;
-
+    const highTemperature = json.data[countdown-1].high_temp;
+    const lowTemperature = json.data[countdown-1].low_temp;
     const pixabay_url = `https://pixabay.com/api/?key=21089515-7c3f2dbad544e7a985e0e3257&q=${city}&image_type=photo`;
     fetch(pixabay_url)
     .then((res) => res.json())
@@ -79,9 +78,9 @@ fetch(geonames_url)
      const image = json.hits[0].webformatURL;
      const results = {
      city: city,
-     nowTemperature: nowTemperature,
-     highTemperature: highTemperature,
-     lowTemperature: lowTemperature,
+     nowTemperature: Math.floor(nowTemperature),
+     highTemperature: Math.floor(highTemperature),
+     lowTemperature: Math.floor(lowTemperature),
      image: image,
       };
       res.send(results);

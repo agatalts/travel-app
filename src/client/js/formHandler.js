@@ -1,3 +1,30 @@
+let endDate = new Date(new Date().getTime()+(16*24*60*60*1000));
+let dd = endDate.getDate();
+let mm = endDate.getMonth()+1;
+let yyyy = endDate.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+let endDateVal = yyyy+'-'+mm+'-'+dd;
+document.getElementById("start").setAttribute("max", endDateVal);
+
+
+let startDate = new Date(new Date().getTime()+(24*60*60*1000));
+let dd2 = startDate.getDate();
+let mm2 = startDate.getMonth()+1;
+let yyyy2 = startDate.getFullYear();
+ if(dd2<10){
+        dd2='0'+dd2
+    } 
+    if(mm2<10){
+        mm2='0'+mm2
+    } 
+let startDateVal = yyyy2+'-'+mm2+'-'+dd2;
+document.getElementById("start").setAttribute("min", startDateVal);
+document.getElementById("end").setAttribute("min", startDateVal);
 
 
 // Create a new date instance dynamically with JS
