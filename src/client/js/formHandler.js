@@ -1,3 +1,5 @@
+// adds the end day to the data inpout so the user can provide the date starting within 16 days from today
+
 let endDate = new Date(new Date().getTime()+(16*24*60*60*1000));
 let dd = endDate.getDate();
 let mm = endDate.getMonth()+1;
@@ -11,6 +13,7 @@ let yyyy = endDate.getFullYear();
 let endDateVal = yyyy+'-'+mm+'-'+dd;
 document.getElementById("start").setAttribute("max", endDateVal);
 
+// adds the start day to the data inputs so the user cannot choose the date from the past 
 
 let startDate = new Date(new Date().getTime()+(24*60*60*1000));
 let dd2 = startDate.getDate();
@@ -52,17 +55,19 @@ if (city && startDay && endDay) {
     countdown: countdown,
   };
 
+// UI update
+
   getWeather(data).then(async (res) => {
     try {
       const results = await res.json();
       if (results) {
-        document.querySelector('#result-countdown').innerHTML = `...starts in ${countdown} days!`;
+        document.querySelector('#result-countdown').innerHTML = `...starts in ${countdown} day(s)!`;
         document.querySelector('#result-city').innerHTML = `${city}`;
         document.querySelector('#result-start').innerHTML = `${startDay}`;
         document.querySelector('#result-end').innerHTML = `${endDay}`;
-        document.querySelector('#result-length').innerHTML = `${length} days`;
+        document.querySelector('#result-length').innerHTML = `${length} day(s)`;
         document.querySelector('#result-image').innerHTML = `<img class="result-image" src=${results.image}  alt="Random image of the city">`;}
-
+// display the current weather or weather forecast according to the date when the trip starts
 if (results && countdown > 7) {
 document.querySelector('#result-weather').innerHTML = `Forecast: max: ${results.highTemperature}°C / low: ${results.lowTemperature}°C`; }
 if (results && countdown <= 7) {
