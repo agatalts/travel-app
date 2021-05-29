@@ -1,3 +1,6 @@
+const startupMessage = require("../client/js/startupMessage");
+
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -41,10 +44,10 @@ app.use(cors());
 
 // Setup Server
 
-app.listen(8081, startupMessage);
-function startupMessage() {
-    console.log('App is listening on port 8081!')
-};
+const port = 8081;
+const server = app.listen(port, function(){
+    startupMessage(port);
+    })
 
 // GET route that returns the projectData object
 

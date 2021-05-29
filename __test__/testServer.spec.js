@@ -1,5 +1,4 @@
-// import { startupMessage } from '../src/server/server'
-const startupMessage = require('../src/server/server');
+const startupMessage = require('../src/client/js/startupMessage');
 test('listen', () => {
     expect(startupMessage).toBeDefined();
 });
