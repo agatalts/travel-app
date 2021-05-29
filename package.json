@@ -30,5 +30,11 @@
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack serve  --config webpack.dev.js --open",
     "test": "jest"
+  },
+   "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
