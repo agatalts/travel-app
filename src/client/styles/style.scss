@@ -20,7 +20,7 @@ a:hover {
   color: #002438;
 }
 
-#app {
+.app {
   background: #bdebf6;
   border: 3px solid #004d79;
   border-radius: 5px;
@@ -28,12 +28,12 @@ a:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   width: 90vw;
   display: grid;
-  grid-template-rows: 70px auto 260px;
+  grid-template-rows: 70px auto auto 260px;
   grid-template-columns: 8fr 7fr;
-
   grid-template-areas:
     "hd hd"
-    "left right"
+    "left left"
+    "right right"
     "photo photo";
 }
 
@@ -151,7 +151,7 @@ input {
 
 .result-image {
   max-height: 90%;
-  max-width: 60%;
+  max-width: 90%;
   margin-bottom: 20px;
   border-radius: 3px;
 }
@@ -167,16 +167,27 @@ footer {
   width: 90vw;
   margin: 0 auto;
   color: #004d79;
-  padding-left: 70px;
+  padding-left: 10px;
   font-size: 12px;
 }
 
 @media (min-width: 900px) {
-  #app {
+  .app {
     width: 700px;
+    display: grid;
+    grid-template-rows: 70px auto 260px;
+    grid-template-columns: 8fr 7fr;
+    grid-template-areas:
+      "hd hd"
+      "left right"
+      "photo photo";
   }
-
   footer {
     width: 700px;
+    padding-left: 70px;
+  }
+
+  .result-image {
+    max-width: 60%;
   }
 }
